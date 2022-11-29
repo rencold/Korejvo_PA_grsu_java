@@ -13,32 +13,36 @@ public class Main {
 		car.setNumber("Х 160 С С");
 		car.setBrand("Сеат");
 		car.setModel("Кордоба");
-		car.setDrive_unit("Передний");
+		car.setDriveUnit("Передний");
 		car.setEngine("Бензиновый");
 		car.setTransmission("МКПП");
-		car.setDriver_id(3);
+		car.setDriverId(3);
+		System.out.println(car.toString());
 
 		Driver driver = new Driver();
 		driver.setId(1);
 		driver.setName("Александр");
-		driver.setPhone_number("8(936) 179 0998");
+		driver.setPhoneNumber("8(936) 179 0998");
 		driver.setExp("4 года");
 		driver.setStatement("Свободен");
-
+		System.out.println(driver.toString());
+		
 		Request request = new Request();
 		request.setId(1);
-		request.setCust_name("Табачная фабрика");
-		request.setPhone_number("8 0152 79-15-00");
-		request.setRun_id(2);
-		request.setCar_id(1);
+		request.setCustName("Табачная фабрика");
+		request.setPhoneNumber("8 0152 79-15-00");
+		request.setRunId(2);
+		request.setCarId(1);
 		request.setStatement("Выполняется");
-
+		System.out.println(request.toString());
+		
 		Run run = new Run();
 		run.setId(1);
-		run.setLocation_from("Гродно");
-		run.setLocation_to("Минск");
+		run.setLocationFrom("Гродно");
+		run.setLocationTo("Минск");
 		run.setDistance(275.6);
-
+		System.out.println(run.toString());
+		
 	}
 
 }

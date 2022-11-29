@@ -6,10 +6,10 @@ public class Car {
 	private String number;
 	private String brand;
 	private String model;
-	private String drive_unit;
+	private String driveUnit;
 	private String engine;
 	private String transmission;
-	private Integer driver_id;
+	private Integer driverId;
 	
 	public Integer getId() {
 		return id;
@@ -35,11 +35,11 @@ public class Car {
 	public void setModel(String model) {
 		this.model = model;
 	}
-	public String getDrive_unit() {
-		return drive_unit;
+	public String getDriveUnit() {
+		return driveUnit;
 	}
-	public void setDrive_unit(String drive_unit) {
-		this.drive_unit = drive_unit;
+	public void setDriveUnit(String driveUnit) {
+		this.driveUnit = driveUnit;
 	}
 	public String getEngine() {
 		return engine;
@@ -53,18 +53,21 @@ public class Car {
 	public void setTransmission(String transmission) {
 		this.transmission = transmission;
 	}
-	public Integer getDriver_id() {
-		return driver_id;
+	public Integer getDriverId() {
+		return driverId;
 	}
-	public void setDriver_id(Integer driver_id) {
-		this.driver_id = driver_id;
+	public void setDriverId(Integer driverId) {
+		this.driverId = driverId;
 	}
 	@Override
 	public String toString() {
-		return "car [id=" + id + ", number=" + number + ", brand=" + brand + ", model=" + model + ", drive_unit="
-				+ drive_unit + ", engine=" + engine + ", transmission=" + transmission + ", driver_id=" + driver_id
-				+ "]";
+		return "Car [id=" + id + ", number=" + number + ", brand=" + brand + ", model=" + model + ", driveUnit="
+				+ driveUnit + ", engine=" + engine + ", transmission=" + transmission + ", driverId=" + driverId + "]";
 	}
 	
 	
+	
 }
+	
+	
+

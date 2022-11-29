@@ -3,10 +3,10 @@ package by.grsu.korejvo.autobase.model;
 public class Request {
 
 	private Integer id;
-	private String cust_name;
-	private String phone_number;
-	private Integer run_id;
-	private Integer car_id;
+	private String custName;
+	private String phoneNumber;
+	private Integer runId;
+	private Integer carId;
 	private String statement;
 	
 	public Integer getId() {
@@ -15,29 +15,29 @@ public class Request {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getCust_name() {
-		return cust_name;
+	public String getCustName() {
+		return custName;
 	}
-	public void setCust_name(String cust_name) {
-		this.cust_name = cust_name;
+	public void setCustName(String custName) {
+		this.custName = custName;
 	}
-	public String getPhone_number() {
-		return phone_number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
-	public Integer getRun_id() {
-		return run_id;
+	public Integer getRunId() {
+		return runId;
 	}
-	public void setRun_id(Integer run_id) {
-		this.run_id = run_id;
+	public void setRunId(Integer runId) {
+		this.runId = runId;
 	}
-	public Integer getCar_id() {
-		return car_id;
+	public Integer getCarId() {
+		return carId;
 	}
-	public void setCar_id(Integer car_id) {
-		this.car_id = car_id;
+	public void setCarId(Integer carId) {
+		this.carId = carId;
 	}
 	public String getStatement() {
 		return statement;
@@ -47,9 +47,10 @@ public class Request {
 	}
 	@Override
 	public String toString() {
-		return "request [id=" + id + ", cust_name=" + cust_name + ", phone_number=" + phone_number + ", run_id="
-				+ run_id + ", car_id=" + car_id + ", statement=" + statement + "]";
+		return "Request [id=" + id + ", custName=" + custName + ", phoneNumber=" + phoneNumber + ", runId=" + runId
+				+ ", carId=" + carId + ", statement=" + statement + "]";
 	}
+	
 	
 	
 	

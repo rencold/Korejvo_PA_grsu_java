@@ -3,8 +3,8 @@ package by.grsu.korejvo.autobase.model;
 public class Run {
 
 	private Integer id;
-	private String location_from;
-	private String location_to;
+	private String locationFrom;
+	private String locationTo;
 	private Double distance;
 	
 	public Integer getId() {
@@ -13,17 +13,17 @@ public class Run {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public String getLocation_from() {
-		return location_from;
+	public String getLocationFrom() {
+		return locationFrom;
 	}
-	public void setLocation_from(String location_from) {
-		this.location_from = location_from;
+	public void setLocationFrom(String locationFrom) {
+		this.locationFrom = locationFrom;
 	}
-	public String getLocation_to() {
-		return location_to;
+	public String getLocationTo() {
+		return locationTo;
 	}
-	public void setLocation_to(String location_to) {
-		this.location_to = location_to;
+	public void setLocationTo(String locationTo) {
+		this.locationTo = locationTo;
 	}
 	public Double getDistance() {
 		return distance;
@@ -33,9 +33,11 @@ public class Run {
 	}
 	@Override
 	public String toString() {
-		return "run [id=" + id + ", location_from=" + location_from + ", location_to=" + location_to + ", distance="
+		return "Run [id=" + id + ", locationFrom=" + locationFrom + ", locationTo=" + locationTo + ", distance="
 				+ distance + "]";
 	}
+	
+	
 	
 	
 	

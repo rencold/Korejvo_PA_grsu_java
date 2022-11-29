@@ -4,7 +4,7 @@ public class Driver {
 
 	private Integer id;
 	private String name;
-	private String phone_number;
+	private String phoneNumber;
 	private String exp;
 	private String statement;
 	
@@ -20,11 +20,11 @@ public class Driver {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public String getPhone_number() {
-		return phone_number;
+	public String getPhoneNumber() {
+		return phoneNumber;
 	}
-	public void setPhone_number(String phone_number) {
-		this.phone_number = phone_number;
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
 	}
 	public String getExp() {
 		return exp;
@@ -40,9 +40,11 @@ public class Driver {
 	}
 	@Override
 	public String toString() {
-		return "driver [id=" + id + ", name=" + name + ", phone_number=" + phone_number + ", exp=" + exp
-				+ ", statement=" + statement + "]";
+		return "Driver [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", exp=" + exp + ", statement="
+				+ statement + "]";
 	}
+	
+	
 	
 	
 	
