@@ -1,4 +1,4 @@
-package autobase_db_model;
+package by.grsu.korejvo.autobase.model;
 
 public class Run {
 

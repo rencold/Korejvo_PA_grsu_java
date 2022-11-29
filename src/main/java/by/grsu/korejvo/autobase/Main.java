@@ -1,12 +1,12 @@
-package autobase;
+package by.grsu.korejvo.autobase;
 
-import autobase_db_model.Car;
-import autobase_db_model.Driver;
-import autobase_db_model.Request;
-import autobase_db_model.Run;
+import by.grsu.korejvo.autobase.model.Car;
+import by.grsu.korejvo.autobase.model.Driver;
+import by.grsu.korejvo.autobase.model.Request;
+import by.grsu.korejvo.autobase.model.Run;
 
 public class Main {
-	
+
 	public static void main(String[] args) {
 		Car car = new Car();
 		car.setId(1);
@@ -17,14 +17,14 @@ public class Main {
 		car.setEngine("Бензиновый");
 		car.setTransmission("МКПП");
 		car.setDriver_id(3);
-	
+
 		Driver driver = new Driver();
 		driver.setId(1);
 		driver.setName("Александр");
 		driver.setPhone_number("8(936) 179 0998");
 		driver.setExp("4 года");
 		driver.setStatement("Свободен");
-		
+
 		Request request = new Request();
 		request.setId(1);
 		request.setCust_name("Табачная фабрика");
@@ -32,13 +32,13 @@ public class Main {
 		request.setRun_id(2);
 		request.setCar_id(1);
 		request.setStatement("Выполняется");
-		
+
 		Run run = new Run();
 		run.setId(1);
 		run.setLocation_from("Гродно");
 		run.setLocation_to("Минск");
 		run.setDistance(275.6);
-		
+
 	}
-	
+
 }
