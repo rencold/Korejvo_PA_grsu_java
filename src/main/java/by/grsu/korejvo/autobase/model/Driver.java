@@ -1,4 +1,4 @@
-package by.grsu.korejvo.autobase.model;
+	package by.grsu.korejvo.autobase.model;
 
 public class Driver {
 
@@ -40,8 +40,7 @@ public class Driver {
 	}
 	@Override
 	public String toString() {
-		return "Driver [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", exp=" + exp + ", statement="
-				+ statement + "]";
+		return "Driver [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", exp=" + exp + ", statement="	+ statement + "]";
 	}
 	
 	
