@@ -10,35 +10,39 @@ public class Run {
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getLocationFrom() {
 		return locationFrom;
 	}
+
 	public void setLocationFrom(String locationFrom) {
 		this.locationFrom = locationFrom;
 	}
+
 	public String getLocationTo() {
 		return locationTo;
 	}
+
 	public void setLocationTo(String locationTo) {
 		this.locationTo = locationTo;
 	}
+
 	public Double getDistance() {
 		return distance;
 	}
+
 	public void setDistance(Double distance) {
 		this.distance = distance;
 	}
+
 	@Override
 	public String toString() {
 		return "Run [id=" + id + ", locationFrom=" + locationFrom + ", locationTo=" + locationTo + ", distance="
 				+ distance + "]";
 	}
-
-
-
-
 
 }

@@ -13,7 +13,6 @@ import by.grsu.korejvo.autobase.model.Driver;
 import by.grsu.korejvo.autobase.model.Request;
 import by.grsu.korejvo.autobase.model.Run;
 
-
 public class RequestDaoTest extends AbstractTest {
 
 	private static final IDao<Integer, Request> requestDao = RequestDaoImpl.INSTANCE;
@@ -45,9 +44,9 @@ public class RequestDaoTest extends AbstractTest {
 
 		String newCustName = "Steclo";
 		entity.setCustName(newCustName);
-		String newPhoneNumber ="+7";
+		String newPhoneNumber = "+7";
 		entity.setPhoneNumber(newPhoneNumber);
-		String newStatement ="done";
+		String newStatement = "done";
 		entity.setStatement(newStatement);
 		requestDao.update(entity);
 
@@ -97,11 +96,11 @@ public class RequestDaoTest extends AbstractTest {
 		int expectedCount = getRandomNumber(1, 5);
 		for (int i = 1; i <= expectedCount; i = i + 1) {
 			Request entity = new Request();
-			entity.setRunId(saveRun("VW"+i).getId());
-			entity.setCarId(saveCar("alex"+i, "reno"+i).getId());
-			entity.setCustName("Neman"+i);
-			entity.setPhoneNumber("+375"+i);
-			entity.setStatement("Neman"+i);
+			entity.setRunId(saveRun("VW" + i).getId());
+			entity.setCarId(saveCar("alex" + i, "reno" + i).getId());
+			entity.setCustName("Neman" + i);
+			entity.setPhoneNumber("+375" + i);
+			entity.setStatement("Neman" + i);
 			requestDao.insert(entity);
 		}
 
@@ -116,9 +115,6 @@ public class RequestDaoTest extends AbstractTest {
 		runDao.insert(entity);
 		return entity;
 	}
-
-
-
 
 	private Car saveCar(String driver, String car) {
 		Driver driverEntity = new Driver();
@@ -140,20 +136,5 @@ public class RequestDaoTest extends AbstractTest {
 		carDao.insert(carEntity);
 		return carEntity;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

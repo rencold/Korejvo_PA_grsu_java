@@ -22,7 +22,8 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 	@Override
 	public void insert(Request entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("insert into request(custName, phoneNumber, runId, carId, statement) values(?,?,?,?,?)");
+			PreparedStatement pstmt = c.prepareStatement(
+					"insert into request(custName, phoneNumber, runId, carId, statement) values(?,?,?,?,?)");
 			pstmt.setString(1, entity.getCustName());
 			pstmt.setString(2, entity.getPhoneNumber());
 			pstmt.setInt(3, entity.getRunId());
@@ -39,14 +40,15 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 	@Override
 	public void update(Request entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("update request set custName=?, phoneNumber=?, runId=?, carId=?, statement=? where id=?");
+			PreparedStatement pstmt = c.prepareStatement(
+					"update request set custName=?, phoneNumber=?, runId=?, carId=?, statement=? where id=?");
 			pstmt.setString(1, entity.getCustName());
 			pstmt.setString(2, entity.getPhoneNumber());
 			pstmt.setInt(3, entity.getRunId());
 			pstmt.setInt(4, entity.getCarId());
 			pstmt.setString(5, entity.getStatement());
 			pstmt.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't update request entity", e);
 		}
 	}
@@ -74,7 +76,7 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't get request entity by id", e);
 		}
 
@@ -91,9 +93,9 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-				throw new RuntimeException("can't select request entities", e);
+			throw new RuntimeException("can't select request entities", e);
 		}
-			return entitiesList;
+		return entitiesList;
 	}
 
 	private Request rowToEntity(ResultSet rs) throws SQLException {
@@ -106,21 +108,5 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 		entity.setStatement(rs.getString("statement"));
 		return entity;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

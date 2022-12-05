@@ -22,13 +22,14 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 	@Override
 	public void insert(Run entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("insert into Run(locationFrom, locationTo, distance) values(?,?,?)");
+			PreparedStatement pstmt = c
+					.prepareStatement("insert into Run(locationFrom, locationTo, distance) values(?,?,?)");
 			pstmt.setString(1, entity.getLocationFrom());
 			pstmt.setString(2, entity.getLocationTo());
 			pstmt.setDouble(3, entity.getDistance());
 			pstmt.executeUpdate();
 			entity.setId(getGeneratedId(c, "run"));
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't insert run entity", e);
 		}
 	}
@@ -36,13 +37,14 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 	@Override
 	public void update(Run entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("update Run set locationFrom=?, locationTo=?, distance=?  where id=?");
+			PreparedStatement pstmt = c
+					.prepareStatement("update Run set locationFrom=?, locationTo=?, distance=?  where id=?");
 			pstmt.setString(1, entity.getLocationFrom());
 			pstmt.setString(2, entity.getLocationTo());
 			pstmt.setDouble(3, entity.getDistance());
 			pstmt.setInt(4, entity.getId());
 			pstmt.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't update Run entity", e);
 		}
 	}
@@ -70,7 +72,7 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't get run entity by id", e);
 		}
 
@@ -87,9 +89,9 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-				throw new RuntimeException("can't select run entities", e);
+			throw new RuntimeException("can't select run entities", e);
 		}
-			return entitiesList;
+		return entitiesList;
 	}
 
 	private Run rowToEntity(ResultSet rs) throws SQLException {
@@ -102,22 +104,3 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

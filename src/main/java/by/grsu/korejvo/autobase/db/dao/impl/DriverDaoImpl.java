@@ -11,7 +11,6 @@ import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Driver;
 
-
 public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> {
 
 	public static final DriverDaoImpl INSTANCE = new DriverDaoImpl();
@@ -23,7 +22,8 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 	@Override
 	public void insert(Driver entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("insert into Driver(name, phoneNumber, exp, statement) values(?,?,?,?)");
+			PreparedStatement pstmt = c
+					.prepareStatement("insert into Driver(name, phoneNumber, exp, statement) values(?,?,?,?)");
 			pstmt.setString(1, entity.getName());
 			pstmt.setString(2, entity.getPhoneNumber());
 			pstmt.setString(3, entity.getExp());
@@ -39,14 +39,15 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 	@Override
 	public void update(Driver entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("update driver set name=?, phoneNumber=?, exp=?, statement=? where id=?");
+			PreparedStatement pstmt = c
+					.prepareStatement("update driver set name=?, phoneNumber=?, exp=?, statement=? where id=?");
 			pstmt.setString(1, entity.getName());
 			pstmt.setString(2, entity.getPhoneNumber());
 			pstmt.setString(3, entity.getExp());
 			pstmt.setString(4, entity.getStatement());
 			pstmt.setInt(5, entity.getId());
 			pstmt.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't update Driver entity", e);
 		}
 	}
@@ -74,13 +75,12 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't get driver entity by id", e);
 		}
 
 		return entity;
 	}
-
 
 	@Override
 	public List<Driver> getAll() {
@@ -92,9 +92,9 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-				throw new RuntimeException("can't select car entities", e);
+			throw new RuntimeException("can't select car entities", e);
 		}
-			return entitiesList;
+		return entitiesList;
 	}
 
 	private Driver rowToEntity(ResultSet rs) throws SQLException {
@@ -108,12 +108,4 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 
 	}
 
-
 }
-
-
-
-
-
-
-

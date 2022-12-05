@@ -37,8 +37,8 @@ public class RunDaoTest extends AbstractTest {
 		dao.update(entity);
 
 		Run updatedEntity = dao.getById(entity.getId());
-		Assertions.assertEquals( newLocationFrom, updatedEntity.getLocationFrom());
-		Assertions.assertEquals( newLocationTo, updatedEntity.getLocationTo());
+		Assertions.assertEquals(newLocationFrom, updatedEntity.getLocationFrom());
+		Assertions.assertEquals(newLocationTo, updatedEntity.getLocationTo());
 		Assertions.assertEquals(newDistance, updatedEntity.getDistance());
 	}
 
@@ -65,9 +65,9 @@ public class RunDaoTest extends AbstractTest {
 
 		Run selectedEntity = dao.getById(entity.getId());
 
-		Assertions.assertEquals( entity.getLocationFrom(), selectedEntity.getLocationFrom());
-		Assertions.assertEquals( entity.getLocationTo(), selectedEntity.getLocationTo());
-		Assertions.assertEquals( entity.getDistance(), selectedEntity.getDistance());
+		Assertions.assertEquals(entity.getLocationFrom(), selectedEntity.getLocationFrom());
+		Assertions.assertEquals(entity.getLocationTo(), selectedEntity.getLocationTo());
+		Assertions.assertEquals(entity.getDistance(), selectedEntity.getDistance());
 	}
 
 	@Test
@@ -75,39 +75,11 @@ public class RunDaoTest extends AbstractTest {
 		int expectedCount = getRandomNumber(1, 5);
 		for (int i = 1; i <= expectedCount; i = i + 1) {
 			Run entity = new Run();
-			entity.setLocationFrom("To"+i);
-			entity.setLocationTo("From"+i);
-			entity.setDistance(567.3+i);
+			entity.setLocationFrom("To" + i);
+			entity.setLocationTo("From" + i);
+			entity.setDistance(567.3 + i);
 			dao.insert(entity);
 		}
 		Assertions.assertEquals(expectedCount, dao.getAll().size());
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

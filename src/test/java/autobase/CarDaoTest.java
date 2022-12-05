@@ -107,13 +107,13 @@ public class CarDaoTest extends AbstractTest {
 		int expectedCount = getRandomNumber(1, 5);
 		for (int i = 1; i <= expectedCount; i = i + 1) {
 			Car entity = new Car();
-			entity.setNumber("6578 HI"+i);
-			entity.setBrand("Folcswagen"+i);
-			entity.setModel("Polo"+i);
-			entity.setDriveUnit("Mechanical"+i);
-			entity.setEngine("Petrol"+i);
-			entity.setTransmission("Manual"+i);
-			entity.setDriverId(saveDriver("VW"+i).getId());
+			entity.setNumber("6578 HI" + i);
+			entity.setBrand("Folcswagen" + i);
+			entity.setModel("Polo" + i);
+			entity.setDriveUnit("Mechanical" + i);
+			entity.setEngine("Petrol" + i);
+			entity.setTransmission("Manual" + i);
+			entity.setDriverId(saveDriver("VW" + i).getId());
 			carDao.insert(entity);
 		}
 
@@ -129,28 +129,5 @@ public class CarDaoTest extends AbstractTest {
 		driverDao.insert(entity);
 		return entity;
 	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }

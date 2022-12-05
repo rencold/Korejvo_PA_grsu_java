@@ -13,7 +13,7 @@ import by.grsu.korejvo.autobase.model.Car;
 
 public class CarDaoImpl extends AbstractDao implements IDao<Integer, Car> {
 
-public static final CarDaoImpl INSTANCE = new CarDaoImpl();
+	public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 
 	private CarDaoImpl() {
 		super();
@@ -22,7 +22,8 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 	@Override
 	public void insert(Car entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("insert into car(number, brand, model, driveUnit, engine, transmission, driverId) values(?,?,?,?,?,?,?)");
+			PreparedStatement pstmt = c.prepareStatement(
+					"insert into car(number, brand, model, driveUnit, engine, transmission, driverId) values(?,?,?,?,?,?,?)");
 			pstmt.setString(1, entity.getNumber());
 			pstmt.setString(2, entity.getBrand());
 			pstmt.setString(3, entity.getModel());
@@ -41,7 +42,8 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 	@Override
 	public void update(Car entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("update car set number=?, brand=?, model=?, driveUnit=?, engine=?, transmission=?, driverId=? where id=?");
+			PreparedStatement pstmt = c.prepareStatement(
+					"update car set number=?, brand=?, model=?, driveUnit=?, engine=?, transmission=?, driverId=? where id=?");
 			pstmt.setString(1, entity.getNumber());
 			pstmt.setString(2, entity.getBrand());
 			pstmt.setString(3, entity.getModel());
@@ -50,7 +52,7 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 			pstmt.setString(6, entity.getTransmission());
 			pstmt.setInt(7, entity.getDriverId());
 			pstmt.executeUpdate();
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't update car entity", e);
 		}
 	}
@@ -78,7 +80,7 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
-		}catch (SQLException e) {
+		} catch (SQLException e) {
 			throw new RuntimeException("can't get car entity by id", e);
 		}
 
@@ -95,9 +97,9 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-				throw new RuntimeException("can't select car entities", e);
+			throw new RuntimeException("can't select car entities", e);
 		}
-			return entitiesList;
+		return entitiesList;
 	}
 
 	private Car rowToEntity(ResultSet rs) throws SQLException {
@@ -113,28 +115,3 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 		return entity;
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

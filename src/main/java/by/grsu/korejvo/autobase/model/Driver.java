@@ -1,4 +1,4 @@
-	package by.grsu.korejvo.autobase.model;
+package by.grsu.korejvo.autobase.model;
 
 public class Driver {
 
@@ -11,40 +11,47 @@ public class Driver {
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
+
 	public String getPhoneNumber() {
 		return phoneNumber;
 	}
+
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
+
 	public String getExp() {
 		return exp;
 	}
+
 	public void setExp(String exp) {
 		this.exp = exp;
 	}
+
 	public String getStatement() {
 		return statement;
 	}
+
 	public void setStatement(String statement) {
 		this.statement = statement;
 	}
+
 	@Override
 	public String toString() {
-		return "Driver [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", exp=" + exp + ", statement="	+ statement + "]";
+		return "Driver [id=" + id + ", name=" + name + ", phoneNumber=" + phoneNumber + ", exp=" + exp + ", statement="
+				+ statement + "]";
 	}
-
-
-
-
 
 }

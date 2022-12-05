@@ -41,8 +41,8 @@ public class DriverDaoTest extends AbstractTest {
 		driverDao.update(entity);
 
 		Driver updatedEntity = driverDao.getById(entity.getId());
-		Assertions.assertEquals( newName, updatedEntity.getName());
-		Assertions.assertEquals( newPhoneNumber, updatedEntity.getPhoneNumber());
+		Assertions.assertEquals(newName, updatedEntity.getName());
+		Assertions.assertEquals(newPhoneNumber, updatedEntity.getPhoneNumber());
 		Assertions.assertEquals(newExp, updatedEntity.getExp());
 		Assertions.assertEquals(newStatement, updatedEntity.getStatement());
 	}
@@ -72,10 +72,10 @@ public class DriverDaoTest extends AbstractTest {
 
 		Driver selectedEntity = driverDao.getById(entity.getId());
 
-		Assertions.assertEquals( entity.getName(), selectedEntity.getName());
-		Assertions.assertEquals( entity.getPhoneNumber(), selectedEntity.getPhoneNumber());
-		Assertions.assertEquals( entity.getExp(), selectedEntity.getExp());
-		Assertions.assertEquals( entity.getStatement(), selectedEntity.getStatement());
+		Assertions.assertEquals(entity.getName(), selectedEntity.getName());
+		Assertions.assertEquals(entity.getPhoneNumber(), selectedEntity.getPhoneNumber());
+		Assertions.assertEquals(entity.getExp(), selectedEntity.getExp());
+		Assertions.assertEquals(entity.getStatement(), selectedEntity.getStatement());
 	}
 
 	@Test
