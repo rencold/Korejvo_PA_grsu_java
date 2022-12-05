@@ -23,16 +23,16 @@ public class RunDaoTest extends AbstractTest {
 	@Test
 	public void testUpdate() {
 		Run entity = new Run();
-		entity.setLocationFrom("To");
-		entity.setLocationTo("From");
+		entity.setLocationFrom("From");
+		entity.setLocationTo("To");
 		entity.setDistance(567.3);
 		dao.insert(entity);
 		
 		String newLocationFrom = "From_NEW";
 		entity.setLocationFrom(newLocationFrom);
 		String newLocationTo = "To_NEW";
-		entity.setLocationTo(newLocationFrom);
-		Double newDistance = 547.9;
+		entity.setLocationTo(newLocationTo);
+		Double newDistance = 567.4;
 		entity.setDistance(newDistance);
 		dao.update(entity);
 		

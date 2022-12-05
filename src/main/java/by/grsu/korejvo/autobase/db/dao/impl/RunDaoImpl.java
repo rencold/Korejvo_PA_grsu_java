@@ -37,7 +37,7 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 	@Override
 	public void update(Run entity) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("update Run set locationFrom=?, locationTo=?, locationFrom=?  where id=?");
+			PreparedStatement pstmt = c.prepareStatement("update Run set locationFrom=?, locationTo=?, distance=?  where id=?");
 			pstmt.setString(1, entity.getLocationFrom());
 			pstmt.setString(2, entity.getLocationTo());
 			pstmt.setDouble(3, entity.getDistance());
@@ -96,9 +96,9 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 	private Run rowToEntity(ResultSet rs) throws SQLException {
 		Run entity = new Run();
 		entity.setId(rs.getInt("id"));
-		entity.setLocationFrom(rs.getString("name"));
-		entity.setLocationTo(rs.getString("phoneNumber"));
-		entity.setDistance(rs.getDouble("654.36"));
+		entity.setLocationFrom(rs.getString("locationFrom"));
+		entity.setLocationTo(rs.getString("locationTo"));
+		entity.setDistance(rs.getDouble("distance"));
 		return entity;
 		
 	}

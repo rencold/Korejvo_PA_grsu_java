@@ -93,7 +93,7 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-				throw new RuntimeException("can't select Brand entities", e);
+				throw new RuntimeException("can't select car entities", e);
 		}
 			return entitiesList;
 	}

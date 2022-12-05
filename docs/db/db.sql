@@ -1,12 +1,12 @@
-CREATE TABLE auto (
+CREATE TABLE car (
 	id integer PRIMARY KEY AUTOINCREMENT,
 	number varchar  NOT NULL,
 	brand varchar  NOT NULL,
-	body varchar  NOT NULL,
+	model varchar  NOT NULL,
 	driveUnit varchar  NOT NULL,
 	engine varchar  NOT NULL,
 	transmission varchar  NOT NULL,
-	driverId integer  NOT NULL
+	driverId integer  NOT NULL REFERENCES driver(id)
 );
 
 CREATE TABLE driver (
