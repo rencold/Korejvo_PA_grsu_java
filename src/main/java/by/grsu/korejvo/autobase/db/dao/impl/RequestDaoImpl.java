@@ -7,19 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Request;
 
 public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request> {
-	
+
 	public static final RequestDaoImpl INSTANCE = new RequestDaoImpl();
-	
+
 	private RequestDaoImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void insert(Request entity) {
 		try (Connection c = createConnection()) {
@@ -34,9 +33,9 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 		} catch (SQLException e) {
 			throw new RuntimeException("can't insert request entity", e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public void update(Request entity) {
 		try (Connection c = createConnection()) {
@@ -51,7 +50,7 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 			throw new RuntimeException("can't update request entity", e);
 		}
 	}
-	
+
 	@Override
 	public void delete(Integer id) {
 		try (Connection c = createConnection()) {
@@ -62,26 +61,26 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 			throw new RuntimeException("can't delete request entity", e);
 		}
 	}
-	
+
 	@Override
 	public Request getById(Integer id) {
 		Request entity = null;
 		try (Connection c = createConnection()) {
 			PreparedStatement pstmt = c.prepareStatement("select * from request where id=?");
 			pstmt.setInt(1, id);
-			
+
 			ResultSet rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
 		}catch (SQLException e) {
 			throw new RuntimeException("can't get request entity by id", e);
 		}
-		
+
 		return entity;
 	}
-	
+
 	@Override
 	public List<Request> getAll() {
 		List<Request> entitiesList = new ArrayList<>();
@@ -96,7 +95,7 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 		}
 			return entitiesList;
 	}
-	
+
 	private Request rowToEntity(ResultSet rs) throws SQLException {
 		Request entity = new Request();
 		entity.setId(rs.getInt("id"));
@@ -107,21 +106,21 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 		entity.setStatement(rs.getString("statement"));
 		return entity;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

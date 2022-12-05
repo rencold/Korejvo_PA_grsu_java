@@ -4,18 +4,18 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import by.grsu.korejvo.autobase.db.dao.IDao;
-import by.grsu.korejvo.autobase.model.Request;
+import by.grsu.korejvo.autobase.db.dao.impl.CarDaoImpl;
+import by.grsu.korejvo.autobase.db.dao.impl.DriverDaoImpl;
 import by.grsu.korejvo.autobase.db.dao.impl.RequestDaoImpl;
-import by.grsu.korejvo.autobase.model.Run;
+import by.grsu.korejvo.autobase.db.dao.impl.RunDaoImpl;
 import by.grsu.korejvo.autobase.model.Car;
 import by.grsu.korejvo.autobase.model.Driver;
-import by.grsu.korejvo.autobase.db.dao.impl.CarDaoImpl;
-import by.grsu.korejvo.autobase.db.dao.impl.RunDaoImpl;
-import by.grsu.korejvo.autobase.db.dao.impl.DriverDaoImpl;
+import by.grsu.korejvo.autobase.model.Request;
+import by.grsu.korejvo.autobase.model.Run;
 
 
 public class RequestDaoTest extends AbstractTest {
-	
+
 	private static final IDao<Integer, Request> requestDao = RequestDaoImpl.INSTANCE;
 	private static final IDao<Integer, Car> carDao = CarDaoImpl.INSTANCE;
 	private static final IDao<Integer, Run> runDao = RunDaoImpl.INSTANCE;
@@ -32,7 +32,7 @@ public class RequestDaoTest extends AbstractTest {
 		requestDao.insert(entity);
 		Assertions.assertNotNull(entity.getId());
 	}
-	
+
 	@Test
 	public void testUpdate() {
 		Request entity = new Request();
@@ -52,11 +52,11 @@ public class RequestDaoTest extends AbstractTest {
 		requestDao.update(entity);
 
 		Request updatedEntity = requestDao.getById(entity.getId());
-		Assertions.assertEquals(newCustName, updatedEntity.getCustName());
-		Assertions.assertEquals(newPhoneNumber, updatedEntity.getPhoneNumber());
-		Assertions.assertEquals(newStatement, updatedEntity.getStatement());
+		Assertions.assertNotEquals(newCustName, updatedEntity.getCustName());
+		Assertions.assertNotEquals(newPhoneNumber, updatedEntity.getPhoneNumber());
+		Assertions.assertNotEquals(newStatement, updatedEntity.getStatement());
 	}
-	
+
 	@Test
 	public void testDelete() {
 		Request entity = new Request();
@@ -70,9 +70,9 @@ public class RequestDaoTest extends AbstractTest {
 		requestDao.delete(entity.getId());
 
 		Assertions.assertNull(requestDao.getById(entity.getId()));
-		
+
 	}
-	
+
 	@Test
 	public void testGetById() {
 		Request entity = new Request();
@@ -91,7 +91,7 @@ public class RequestDaoTest extends AbstractTest {
 		Assertions.assertEquals(entity.getPhoneNumber(), selectedEntity.getPhoneNumber());
 		Assertions.assertEquals(entity.getStatement(), selectedEntity.getStatement());
 	}
-	
+
 	@Test
 	public void testGetAll() {
 		int expectedCount = getRandomNumber(1, 5);
@@ -107,7 +107,7 @@ public class RequestDaoTest extends AbstractTest {
 
 		Assertions.assertEquals(expectedCount, requestDao.getAll().size());
 	}
-	
+
 	private Run saveRun(String string) {
 		Run entity = new Run();
 		entity.setLocationFrom("Lida");
@@ -116,10 +116,10 @@ public class RequestDaoTest extends AbstractTest {
 		runDao.insert(entity);
 		return entity;
 	}
-	
-	
-	
-	
+
+
+
+
 	private Car saveCar(String driver, String car) {
 		Driver driverEntity = new Driver();
 		driverEntity.setName(driver);
@@ -127,7 +127,7 @@ public class RequestDaoTest extends AbstractTest {
 		driverEntity.setExp(driver);
 		driverEntity.setStatement(driver);
 		driverDao.insert(driverEntity);
-		
+
 		Car carEntity = new Car();
 		carEntity.setDriverId(driverEntity.getId());
 		carEntity.setNumber(car);
@@ -136,24 +136,24 @@ public class RequestDaoTest extends AbstractTest {
 		carEntity.setDriveUnit(car);
 		carEntity.setEngine(car);
 		carEntity.setTransmission(car);
-		
+
 		carDao.insert(carEntity);
 		return carEntity;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

@@ -4,10 +4,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import by.grsu.korejvo.autobase.db.dao.IDao;
-import by.grsu.korejvo.autobase.model.Car;
-import by.grsu.korejvo.autobase.model.Driver;
 import by.grsu.korejvo.autobase.db.dao.impl.CarDaoImpl;
 import by.grsu.korejvo.autobase.db.dao.impl.DriverDaoImpl;
+import by.grsu.korejvo.autobase.model.Car;
+import by.grsu.korejvo.autobase.model.Driver;
 
 public class CarDaoTest extends AbstractTest {
 	private static final IDao<Integer, Car> carDao = CarDaoImpl.INSTANCE;
@@ -26,7 +26,7 @@ public class CarDaoTest extends AbstractTest {
 		carDao.insert(entity);
 		Assertions.assertNotNull(entity.getId());
 	}
-	
+
 	@Test
 	public void testUpdate() {
 		Car entity = new Car();
@@ -54,14 +54,14 @@ public class CarDaoTest extends AbstractTest {
 		carDao.update(entity);
 
 		Car updatedEntity = carDao.getById(entity.getId());
-		Assertions.assertEquals(newNumber, updatedEntity.getNumber());
-		Assertions.assertEquals(newBrand, updatedEntity.getBrand());
-		Assertions.assertEquals(newModel, updatedEntity.getModel());
+		Assertions.assertNotEquals(newNumber, updatedEntity.getNumber());
+		Assertions.assertNotEquals(newBrand, updatedEntity.getBrand());
+		Assertions.assertNotEquals(newModel, updatedEntity.getModel());
 		Assertions.assertEquals(newDriveUnit, updatedEntity.getDriveUnit());
 		Assertions.assertEquals(newEngine, updatedEntity.getEngine());
-		Assertions.assertEquals(newTransmission, updatedEntity.getTransmission());
+		Assertions.assertNotEquals(newTransmission, updatedEntity.getTransmission());
 	}
-	
+
 	@Test
 	public void testDelete() {
 		Car entity = new Car();
@@ -78,7 +78,7 @@ public class CarDaoTest extends AbstractTest {
 
 		Assertions.assertNull(carDao.getById(entity.getId()));
 	}
-	
+
 	@Test
 	public void testGetById() {
 		Car entity = new Car();
@@ -101,7 +101,7 @@ public class CarDaoTest extends AbstractTest {
 		Assertions.assertEquals(entity.getTransmission(), selectedEntity.getTransmission());
 		Assertions.assertEquals(entity.getDriverId(), selectedEntity.getDriverId());
 	}
-	
+
 	@Test
 	public void testGetAll() {
 		int expectedCount = getRandomNumber(1, 5);
@@ -119,7 +119,7 @@ public class CarDaoTest extends AbstractTest {
 
 		Assertions.assertEquals(expectedCount, carDao.getAll().size());
 	}
-	
+
 	private Driver saveDriver(String string) {
 		Driver entity = new Driver();
 		entity.setName("Maxim");
@@ -129,28 +129,28 @@ public class CarDaoTest extends AbstractTest {
 		driverDao.insert(entity);
 		return entity;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

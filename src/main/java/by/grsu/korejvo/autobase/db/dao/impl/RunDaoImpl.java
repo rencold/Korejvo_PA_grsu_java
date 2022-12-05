@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Run;
@@ -15,11 +14,11 @@ import by.grsu.korejvo.autobase.model.Run;
 public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 
 	public static final RunDaoImpl INSTANCE = new RunDaoImpl();
-	
+
 	private RunDaoImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void insert(Run entity) {
 		try (Connection c = createConnection()) {
@@ -33,7 +32,7 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 			throw new RuntimeException("can't insert run entity", e);
 		}
 	}
-	
+
 	@Override
 	public void update(Run entity) {
 		try (Connection c = createConnection()) {
@@ -47,7 +46,7 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 			throw new RuntimeException("can't update Run entity", e);
 		}
 	}
-	
+
 	@Override
 	public void delete(Integer id) {
 		try (Connection c = createConnection()) {
@@ -60,24 +59,24 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 	}
 
 	@Override
-	public Run getById(Integer id) { 
+	public Run getById(Integer id) {
 		Run entity = null;
 		try (Connection c = createConnection()) {
 			PreparedStatement pstmt = c.prepareStatement("select * from run where id=?");
 			pstmt.setInt(1, id);
-			
+
 			ResultSet rs = pstmt.executeQuery();
-				
+
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
 		}catch (SQLException e) {
 			throw new RuntimeException("can't get run entity by id", e);
 		}
-		
+
 		return entity;
 	}
-	
+
 	@Override
 	public List<Run> getAll() {
 		List<Run> entitiesList = new ArrayList<>();
@@ -92,7 +91,7 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 		}
 			return entitiesList;
 	}
-	
+
 	private Run rowToEntity(ResultSet rs) throws SQLException {
 		Run entity = new Run();
 		entity.setId(rs.getInt("id"));
@@ -100,26 +99,25 @@ public class RunDaoImpl extends AbstractDao implements IDao<Integer, Run> {
 		entity.setLocationTo(rs.getString("locationTo"));
 		entity.setDistance(rs.getDouble("distance"));
 		return entity;
-		
+
 	}
 }
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

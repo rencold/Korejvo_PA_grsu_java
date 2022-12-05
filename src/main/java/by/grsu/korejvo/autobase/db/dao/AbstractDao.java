@@ -76,5 +76,5 @@ public abstract class AbstractDao {
 		dbDataFile.delete();
 	}
 
-	
+
 }

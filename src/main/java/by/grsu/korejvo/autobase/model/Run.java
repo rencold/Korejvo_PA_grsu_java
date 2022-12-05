@@ -6,7 +6,7 @@ public class Run {
 	private String locationFrom;
 	private String locationTo;
 	private Double distance;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -36,9 +36,9 @@ public class Run {
 		return "Run [id=" + id + ", locationFrom=" + locationFrom + ", locationTo=" + locationTo + ", distance="
 				+ distance + "]";
 	}
-	
-	
-	
-	
-	
+
+
+
+
+
 }

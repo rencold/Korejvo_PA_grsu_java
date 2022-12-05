@@ -10,8 +10,8 @@ public class Car {
 	private String engine;
 	private String transmission;
 	private Integer driverId;
-	
-	
+
+
 	public Integer getId() {
 		return id;
 	}
@@ -65,8 +65,8 @@ public class Car {
 		return "Car [id=" + id + ", number=" + number + ", brand=" + brand + ", model=" + model + ", driveUnit="
 				+ driveUnit + ", engine=" + engine + ", transmission=" + transmission + ", driverId=" + driverId + "]";
 	}
-	
+
 }
-	
-	
+
+
 

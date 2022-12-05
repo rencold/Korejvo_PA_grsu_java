@@ -4,12 +4,12 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import by.grsu.korejvo.autobase.db.dao.IDao;
-import by.grsu.korejvo.autobase.model.Driver;
 import by.grsu.korejvo.autobase.db.dao.impl.DriverDaoImpl;
+import by.grsu.korejvo.autobase.model.Driver;
 
 public class DriverDaoTest extends AbstractTest {
 	private static final IDao<Integer, Driver> driverDao = DriverDaoImpl.INSTANCE;
-	
+
 	@Test
 	public void testInsert() {
 		Driver entity = new Driver();
@@ -20,7 +20,7 @@ public class DriverDaoTest extends AbstractTest {
 		driverDao.insert(entity);
 		Assertions.assertNotNull(entity.getId());
 	}
-	
+
 	@Test
 	public void testUpdate() {
 		Driver entity = new Driver();
@@ -29,7 +29,7 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setExp("exp");
 		entity.setStatement("statement");
 		driverDao.insert(entity);
-		
+
 		String newName = "VM_NEW";
 		entity.setName(newName);
 		String newPhoneNumber = "numb_NEW";
@@ -39,14 +39,14 @@ public class DriverDaoTest extends AbstractTest {
 		String newStatement = "Statement_NEW";
 		entity.setStatement(newStatement);
 		driverDao.update(entity);
-		
+
 		Driver updatedEntity = driverDao.getById(entity.getId());
 		Assertions.assertEquals( newName, updatedEntity.getName());
 		Assertions.assertEquals( newPhoneNumber, updatedEntity.getPhoneNumber());
 		Assertions.assertEquals(newExp, updatedEntity.getExp());
 		Assertions.assertEquals(newStatement, updatedEntity.getStatement());
 	}
-	
+
 	@Test
 	public void testDelete() {
 		Driver entity = new Driver();
@@ -55,9 +55,9 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setExp("exp");
 		entity.setStatement("statement");
 		driverDao.insert(entity);
-		
+
 		driverDao.delete(entity.getId());
-		
+
 		Assertions.assertNull(driverDao.getById(entity.getId()));
 	}
 
@@ -69,15 +69,15 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setExp("exp");
 		entity.setStatement("statement");
 		driverDao.insert(entity);
-		
+
 		Driver selectedEntity = driverDao.getById(entity.getId());
-		
+
 		Assertions.assertEquals( entity.getName(), selectedEntity.getName());
 		Assertions.assertEquals( entity.getPhoneNumber(), selectedEntity.getPhoneNumber());
 		Assertions.assertEquals( entity.getExp(), selectedEntity.getExp());
 		Assertions.assertEquals( entity.getStatement(), selectedEntity.getStatement());
 	}
-	
+
 	@Test
 	public void testGetAll() {
 		int expectedCount = getRandomNumber(1, 5);
@@ -91,4 +91,4 @@ public class DriverDaoTest extends AbstractTest {
 		}
 		Assertions.assertEquals(expectedCount, driverDao.getAll().size());
 	}
-}	
+}

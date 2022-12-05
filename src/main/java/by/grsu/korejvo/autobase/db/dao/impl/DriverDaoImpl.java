@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Driver;
@@ -16,7 +15,7 @@ import by.grsu.korejvo.autobase.model.Driver;
 public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> {
 
 	public static final DriverDaoImpl INSTANCE = new DriverDaoImpl();
-	
+
 	private DriverDaoImpl() {
 		super();
 	}
@@ -34,7 +33,7 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 		} catch (SQLException e) {
 			throw new RuntimeException("can't insert brand entity", e);
 		}
-		
+
 	}
 
 	@Override
@@ -51,7 +50,7 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 			throw new RuntimeException("can't update Driver entity", e);
 		}
 	}
-	
+
 	@Override
 	public void delete(Integer id) {
 		try (Connection c = createConnection()) {
@@ -69,20 +68,20 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 		try (Connection c = createConnection()) {
 			PreparedStatement pstmt = c.prepareStatement("select * from driver where id=?");
 			pstmt.setInt(1, id);
-			
+
 			ResultSet rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
 		}catch (SQLException e) {
 			throw new RuntimeException("can't get driver entity by id", e);
 		}
-		
+
 		return entity;
 	}
 
-	
+
 	@Override
 	public List<Driver> getAll() {
 		List<Driver> entitiesList = new ArrayList<>();
@@ -106,7 +105,7 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 		entity.setExp(rs.getString("exp"));
 		entity.setStatement(rs.getString("statement"));
 		return entity;
-		
+
 	}
 
 

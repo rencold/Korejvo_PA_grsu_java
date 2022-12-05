@@ -7,19 +7,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Car;
 
 public class CarDaoImpl extends AbstractDao implements IDao<Integer, Car> {
-	
+
 public static final CarDaoImpl INSTANCE = new CarDaoImpl();
-	
+
 	private CarDaoImpl() {
 		super();
 	}
-	
+
 	@Override
 	public void insert(Car entity) {
 		try (Connection c = createConnection()) {
@@ -36,9 +35,9 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 		} catch (SQLException e) {
 			throw new RuntimeException("can't insert car entity", e);
 		}
-		
+
 	}
-	
+
 	@Override
 	public void update(Car entity) {
 		try (Connection c = createConnection()) {
@@ -55,7 +54,7 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 			throw new RuntimeException("can't update car entity", e);
 		}
 	}
-	
+
 	@Override
 	public void delete(Integer id) {
 		try (Connection c = createConnection()) {
@@ -66,26 +65,26 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 			throw new RuntimeException("can't delete car entity", e);
 		}
 	}
-	
+
 	@Override
 	public Car getById(Integer id) {
 		Car entity = null;
 		try (Connection c = createConnection()) {
 			PreparedStatement pstmt = c.prepareStatement("select * from car where id=?");
 			pstmt.setInt(1, id);
-			
+
 			ResultSet rs = pstmt.executeQuery();
-			
+
 			if (rs.next()) {
 				entity = rowToEntity(rs);
 			}
 		}catch (SQLException e) {
 			throw new RuntimeException("can't get car entity by id", e);
 		}
-		
+
 		return entity;
 	}
-	
+
 	@Override
 	public List<Car> getAll() {
 		List<Car> entitiesList = new ArrayList<>();
@@ -100,7 +99,7 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 		}
 			return entitiesList;
 	}
-	
+
 	private Car rowToEntity(ResultSet rs) throws SQLException {
 		Car entity = new Car();
 		entity.setId(rs.getInt("id"));
@@ -113,29 +112,29 @@ public static final CarDaoImpl INSTANCE = new CarDaoImpl();
 		entity.setDriverId(rs.getInt("driverId"));
 		return entity;
 	}
-}	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

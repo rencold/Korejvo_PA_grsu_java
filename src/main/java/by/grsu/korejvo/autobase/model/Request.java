@@ -8,7 +8,7 @@ public class Request {
 	private Integer runId;
 	private Integer carId;
 	private String statement;
-	
+
 	public Integer getId() {
 		return id;
 	}
@@ -50,8 +50,8 @@ public class Request {
 		return "Request [id=" + id + ", custName=" + custName + ", phoneNumber=" + phoneNumber + ", runId=" + runId
 				+ ", carId=" + carId + ", statement=" + statement + "]";
 	}
-	
-	
-	
-	
+
+
+
+
 }
