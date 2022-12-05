@@ -8,7 +8,7 @@ import by.grsu.korejvo.autobase.model.Driver;
 import by.grsu.korejvo.autobase.db.dao.impl.DriverDaoImpl;
 
 public class DriverDaoTest extends AbstractTest {
-	private static final IDao<Integer, Driver> dao = DriverDaoImpl.INSTANCE;
+	private static final IDao<Integer, Driver> driverDao = DriverDaoImpl.INSTANCE;
 	
 	@Test
 	public void testInsert() {
@@ -17,7 +17,7 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setPhoneNumber("+375");
 		entity.setExp("exp");
 		entity.setStatement("statement");
-		dao.insert(entity);
+		driverDao.insert(entity);
 		Assertions.assertNotNull(entity.getId());
 	}
 	
@@ -28,7 +28,7 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setPhoneNumber("+375");
 		entity.setExp("exp");
 		entity.setStatement("statement");
-		dao.insert(entity);
+		driverDao.insert(entity);
 		
 		String newName = "VM_NEW";
 		entity.setName(newName);
@@ -38,9 +38,9 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setExp(newExp);
 		String newStatement = "Statement_NEW";
 		entity.setStatement(newStatement);
-		dao.update(entity);
+		driverDao.update(entity);
 		
-		Driver updatedEntity = dao.getById(entity.getId());
+		Driver updatedEntity = driverDao.getById(entity.getId());
 		Assertions.assertEquals( newName, updatedEntity.getName());
 		Assertions.assertEquals( newPhoneNumber, updatedEntity.getPhoneNumber());
 		Assertions.assertEquals(newExp, updatedEntity.getExp());
@@ -54,11 +54,11 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setPhoneNumber("+375");
 		entity.setExp("exp");
 		entity.setStatement("statement");
-		dao.insert(entity);
+		driverDao.insert(entity);
 		
-		dao.delete(entity.getId());
+		driverDao.delete(entity.getId());
 		
-		Assertions.assertNull(dao.getById(entity.getId()));
+		Assertions.assertNull(driverDao.getById(entity.getId()));
 	}
 
 	@Test
@@ -68,9 +68,9 @@ public class DriverDaoTest extends AbstractTest {
 		entity.setPhoneNumber("+375");
 		entity.setExp("exp");
 		entity.setStatement("statement");
-		dao.insert(entity);
+		driverDao.insert(entity);
 		
-		Driver selectedEntity = dao.getById(entity.getId());
+		Driver selectedEntity = driverDao.getById(entity.getId());
 		
 		Assertions.assertEquals( entity.getName(), selectedEntity.getName());
 		Assertions.assertEquals( entity.getPhoneNumber(), selectedEntity.getPhoneNumber());
@@ -87,8 +87,8 @@ public class DriverDaoTest extends AbstractTest {
 			entity.setPhoneNumber("+375" + i);
 			entity.setExp("exp" + i);
 			entity.setStatement("statement" + i);
-			dao.insert(entity);
+			driverDao.insert(entity);
 		}
-		Assertions.assertEquals(expectedCount, dao.getAll().size());
+		Assertions.assertEquals(expectedCount, driverDao.getAll().size());
 	}
 }	

@@ -39,7 +39,7 @@ public class CarDaoTest extends AbstractTest {
 		entity.setDriverId(saveDriver("VW").getId());
 		carDao.insert(entity);
 
-		String newNumber = "8679 HY";
+		String newNumber = "8572 HY";
 		entity.setNumber(newNumber);
 		String newBrand = "Seat";
 		entity.setBrand(newBrand);
@@ -65,7 +65,7 @@ public class CarDaoTest extends AbstractTest {
 	@Test
 	public void testDelete() {
 		Car entity = new Car();
-		entity.setNumber("6578 HI");
+		entity.setNumber("8679 HY_NEW");
 		entity.setBrand("Folcswagen");
 		entity.setModel("Polo");
 		entity.setDriveUnit("Mechanical");
@@ -126,6 +126,7 @@ public class CarDaoTest extends AbstractTest {
 		entity.setPhoneNumber("+375");
 		entity.setExp("10 years");
 		entity.setStatement("Free");
+		driverDao.insert(entity);
 		return entity;
 	}
 	
