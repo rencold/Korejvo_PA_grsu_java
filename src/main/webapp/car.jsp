@@ -1,31 +1,9 @@
-<html>
-
-<head>
-<title>Автобаза автомобили</title>
-
-<!-- Compiled and minified CSS -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-</head>
-
-<body>
-<nav class="teal darken-3" role="navigation">
-	<div class="nav-wrapper container">
-		<a id="logo-container" href="#" class="brand-logo">Автобаза</a>
-		<ul class="brand-logo center">
-		<li><a href="request.html">Заявки</a></li>
-        <li><a href="driver.html">Водители</a></li>
-        <li class="active"><a href="car.html">Автомобили</a></li>
-        <li><a href="run.html">Рейсы</a></li>
-        
-      </ul>
-	</div>
-</nav>
-
-
-<div class="section no-pad-bot" id="index-banner">
-	<div class="container">
-		<h1>Автомобили</h1>
+<%@ page contentType="text/html" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
+<c:set var="pageTitle" value="New request" scope="application"/>
+<t:wrapper>
+		<h1>Cars</h1>
 		<div class="row">
 			<div class="col s12">
 			</div>
@@ -33,54 +11,53 @@
 		<table>
 			<thead>
 				<tr>
-					<th>ID автомобиля</th>
-					<th>Номера автомобиля</th>
-					<th>Брэнд</th>
-					<th>Модель</th>
-					<th>Привод автомобиля</th>
-					<th>Тип двигателя</th>
-					<th>Тип КПП</th>
-					<th>Водитель</th>
+					<th>ID</th>
+					<th>Number</th>
+					<th>Brand´</th>
+					<th>Model</th>
+					<th>Drive Unit</th>
+					<th>Engine</th>
+					<th>Transmission</th>
+					<th>Driver ID</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>1</td>
-					<td>У 468 У Н</td>
-					<td>Лада</td>
-					<td>Седан</td>
-					<td>Полный</td>
-					<td>Дизельный</td>
-					<td>Механическая</td>
+					<td>Ð£ 468 Ð£ Ð</td>
+					<td>ÐÐ°Ð´Ð°</td>
+					<td>Ð¡ÐµÐ´Ð°Ð½</td>
+					<td>ÐÐ¾Ð»Ð½ÑÐ¹</td>
+					<td>ÐÐ¸Ð·Ðµ</td>
+					<td>ÐÐµÑÐ</td>
 					<td>3</td>					
 				</tr>
 				<tr>
 					<td>2</td>
-					<td>К 793 К М</td>
-					<td>Мерседес</td>
-					<td>Универсал</td>
-					<td>Задний</td>
-					<td>Бензинный</td>
-					<td>Автомат</td>
+					<td>Ð 793 Ð Ð</td>
+					<td>ÐÐµÑÑÐµÐ´ÐµÑ</td>
+					<td>Ð£Ð½Ð¸Ð</td>
+					<td>ÐÐ°Ð´Ð½Ð¸Ð¹</td>
+					<td>ÐÐµÐ½Ð</td>
+					<td>ÐÐ²ÑÐ¾Ð¼Ð°Ñ</td>
 					<td>2</td>					
 				</tr>
 				<tr>
 					<td>3</td>
-					<td>Е 827 Р Х</td>
-					<td>Ауди</td>
-					<td>Лифтбек</td>
-					<td>Гибридный</td>
-					<td>Бензинный</td>
-					<td>Бесступенчатая</td>
+					<td>Ð 827 Ð  Ð¥</td>
+					<td>ÐÑÐ´Ð¸</td>
+					<td>ÐÐ¸ÑÑÐ</td>
+					<td>ÐÐ¸Ð±ÑÐ</td>
+					<td>ÐÐµÐ½Ð·Ð¸</td>
+					<td>ÐÐµÑÑÑ</td>
 					<td>4</td>
 				</tr>
 			</tbody>
 		</table>
 
-	</div>
-</div>
 
 <!-- Compiled and minified JavaScript -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
+</t:wrapper>
