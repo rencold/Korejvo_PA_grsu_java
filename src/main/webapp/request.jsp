@@ -1,7 +1,7 @@
 <%@ page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="t" tagdir="/WEB-INF/tags"%>
-<c:set var="pageTitle" value="New request" scope="application"/>
+<c:set var="pageTitle" value="Requests" scope="application"/>
 <t:wrapper>
 		<h1>Requests</h1>
 		<table>
@@ -52,10 +52,4 @@
 				</div>
 			</div>
 		</div>
-
-<!-- Compiled and minified JavaScript -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
-
 </t:wrapper>

@@ -52,12 +52,4 @@
 						class="material-icons left">save</i>Ð¡Ð¾ÑÑÐ°Ð½Ð¸ÑÑ</a>
 				</div>
 			</div>
-	
-
-	<!-- Compiled and minified JavaScript -->
-	<script
-		src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</body>
-</html>
-
 </t:wrapper>
