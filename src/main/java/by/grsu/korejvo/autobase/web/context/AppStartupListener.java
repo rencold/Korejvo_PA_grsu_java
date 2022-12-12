@@ -1,8 +1,6 @@
 package by.grsu.korejvo.autobase.web.context;
 
 import java.sql.SQLException;
-import java.sql.Timestamp;
-import java.util.Date;
 
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
@@ -38,6 +36,23 @@ public class AppStartupListener implements ServletContextListener {
 	}
 
 	private void loadInitialData() {
+
+		Run runEntity = new Run();
+		runEntity.setLocationFrom("Hrodno");
+		runEntity.setLocationTo("Minsc");
+		runEntity.setDistance(567.8);
+		runDao.insert(runEntity);
+		System.out.println("created: " + runEntity);
+		System.out.println("initial data created");
+
+		Driver driverEntity = new Driver();
+		driverEntity.setName("Alex");
+		driverEntity.setPhoneNumber("+3752978804563");
+		driverEntity.setExp("4 years");
+		driverEntity.setStatement("free");
+		driverDao.insert(driverEntity);
+		System.out.println("created: " + driverEntity);
+
 		Car carEntity = new Car();
 		carEntity.setNumber("6578 HI");
 		carEntity.setBrand("Folcswagen");
@@ -49,14 +64,6 @@ public class AppStartupListener implements ServletContextListener {
 		carDao.insert(carEntity);
 		System.out.println("created: " + carEntity);
 
-		Driver driverEntity = new Driver();
-		driverEntity.setName("Alex");
-		driverEntity.setPhoneNumber("+3752978804563");
-		driverEntity.setExp("4 years");
-		driverEntity.setStatement("free");
-		driverDao.insert(driverEntity);
-		System.out.println("created: " + driverEntity);
-
 		Request requestEntity = new Request();
 		requestEntity.setRunId(runEntity.getId());
 		requestEntity.setCarId(carEntity.getId());
@@ -66,13 +73,6 @@ public class AppStartupListener implements ServletContextListener {
 		requestDao.insert(requestEntity);
 		System.out.println("created: " + requestEntity);
 
-		Run runEntity = new Run();
-		runEntity.setLocationFrom("Hrodno");
-		runEntity.setLocationTo("Minsc");
-		runEntity.setDistance(567.8);
-		runDao.insert(runEntity);
-		System.out.println("created: " + runEntity);
-		System.out.println("initial data created");
 	}
 
 	@Override

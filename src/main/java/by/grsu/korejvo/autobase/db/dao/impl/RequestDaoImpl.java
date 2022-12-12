@@ -10,6 +10,7 @@ import java.util.List;
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Request;
+import by.grsu.korejvo.autobase.web.dto.TableStateDto;
 
 public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request> {
 
@@ -109,4 +110,13 @@ public class RequestDaoImpl extends AbstractDao implements IDao<Integer, Request
 		return entity;
 	}
 
+	@Override
+	public List<Request> find(TableStateDto tableStateDto) {
+		throw new RuntimeException("not implemented");
+	}
+
+	@Override
+	public int count() {
+		throw new RuntimeException("not implemented");
+	}
 }

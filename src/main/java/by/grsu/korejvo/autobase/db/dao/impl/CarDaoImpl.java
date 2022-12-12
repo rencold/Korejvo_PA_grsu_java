@@ -10,6 +10,7 @@ import java.util.List;
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Car;
+import by.grsu.korejvo.autobase.web.dto.TableStateDto;
 
 public class CarDaoImpl extends AbstractDao implements IDao<Integer, Car> {
 
@@ -114,4 +115,15 @@ public class CarDaoImpl extends AbstractDao implements IDao<Integer, Car> {
 		entity.setDriverId(rs.getInt("driverId"));
 		return entity;
 	}
+
+	@Override
+	public List<Car> find(TableStateDto tableStateDto) {
+		throw new RuntimeException("not implemented");
+	}
+
+	@Override
+	public int count() {
+		throw new RuntimeException("not implemented");
+	}
+
 }

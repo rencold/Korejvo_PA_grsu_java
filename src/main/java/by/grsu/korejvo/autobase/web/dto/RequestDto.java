@@ -1,13 +1,19 @@
-package by.grsu.korejvo.autobase.model;
+package by.grsu.korejvo.autobase.web.dto;
 
-public class Request {
+public class RequestDto {
 
 	private Integer id;
+
 	private String custName;
+
 	private String phoneNumber;
+
 	private Integer runId;
+
 	private Integer carId;
-	private Integer carNumber;
+	
+	private String carNumber;
+	
 	private String statement;
 
 	public Integer getId() {
@@ -58,21 +64,14 @@ public class Request {
 		this.statement = statement;
 	}
 
-	public Integer getCarNumber() {
+	public String getCarNumber() {
 		return carNumber;
 	}
 
-	public void setCarNumber(Integer carNumber) {
+	public void setCarNumber(String carNumber) {
 		this.carNumber = carNumber;
 	}
-
-	@Override
-	public String toString() {
-		return "Request [id=" + id + ", custName=" + custName + ", phoneNumber=" + phoneNumber + ", runId=" + runId
-				+ ", carId=" + carId + ", carNumber=" + carNumber + ", statement=" + statement + "]";
-	}
 	
 	
-
-
+	
 }

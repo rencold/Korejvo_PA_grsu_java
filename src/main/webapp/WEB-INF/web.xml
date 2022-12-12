@@ -6,4 +6,56 @@
 	<listener>
 		<listener-class>by.grsu.korejvo.autobase.web.context.AppStartupListener</listener-class>
 	</listener>
+	
+
+	<servlet>
+		<servlet-name>DriverServlet</servlet-name>
+		<servlet-class>by.grsu.korejvo.autobase.web.servlet.DriverServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RunServlet</servlet-name>
+		<servlet-class>by.grsu.korejvo.autobase.web.servlet.RunServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>RequestServlet</servlet-name>
+		<servlet-class>by.grsu.korejvo.autobase.web.servlet.RequestServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>CarServlet</servlet-name>
+		<servlet-class>by.grsu.korejvo.autobase.web.servlet.CarServlet</servlet-class>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>DriverServlet</servlet-name>
+		<url-pattern>/driver</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RunServlet</servlet-name>
+		<url-pattern>/run</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>RequestServlet</servlet-name>
+		<url-pattern>/request</url-pattern>
+	</servlet-mapping>
+	
+	<servlet-mapping>
+		<servlet-name>CarServlet</servlet-name>
+		<url-pattern>/car</url-pattern>
+	</servlet-mapping>
+	
+	<jsp-config>
+		<taglib>
+			<taglib-uri>my-custom-tags-uri</taglib-uri>
+			<taglib-location>/WEB-INF/my-tags.tld</taglib-location>
+		</taglib>
+		<jsp-property-group>
+			<url-pattern>*.jsp</url-pattern>
+			<page-encoding>UTF-8</page-encoding>
+		</jsp-property-group>
+	</jsp-config>
 </web-app>

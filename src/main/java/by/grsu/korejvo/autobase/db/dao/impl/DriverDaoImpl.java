@@ -10,6 +10,7 @@ import java.util.List;
 import by.grsu.korejvo.autobase.db.dao.AbstractDao;
 import by.grsu.korejvo.autobase.db.dao.IDao;
 import by.grsu.korejvo.autobase.model.Driver;
+import by.grsu.korejvo.autobase.web.dto.TableStateDto;
 
 public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> {
 
@@ -23,15 +24,15 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 	public void insert(Driver entity) {
 		try (Connection c = createConnection()) {
 			PreparedStatement pstmt = c
-					.prepareStatement("insert into Driver(name, phoneNumber, exp, statement) values(?,?,?,?)");
+					.prepareStatement("insert into driver(name, phoneNumber, exp, statement) values(?,?,?,?)");
 			pstmt.setString(1, entity.getName());
 			pstmt.setString(2, entity.getPhoneNumber());
 			pstmt.setString(3, entity.getExp());
 			pstmt.setString(4, entity.getStatement());
 			pstmt.executeUpdate();
-			entity.setId(getGeneratedId(c, "Driver"));
+			entity.setId(getGeneratedId(c, "driver"));
 		} catch (SQLException e) {
-			throw new RuntimeException("can't insert brand entity", e);
+			throw new RuntimeException("can't insert driver entity", e);
 		}
 
 	}
@@ -48,18 +49,18 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 			pstmt.setInt(5, entity.getId());
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			throw new RuntimeException("can't update Driver entity", e);
+			throw new RuntimeException("can't update driver entity", e);
 		}
 	}
 
 	@Override
 	public void delete(Integer id) {
 		try (Connection c = createConnection()) {
-			PreparedStatement pstmt = c.prepareStatement("delete from Driver where id=?");
+			PreparedStatement pstmt = c.prepareStatement("delete from driver where id=?");
 			pstmt.setInt(1, id);
 			pstmt.executeUpdate();
 		} catch (SQLException e) {
-			throw new RuntimeException("can't delete Driver entity", e);
+			throw new RuntimeException("can't delete driver entity", e);
 		}
 	}
 
@@ -92,7 +93,7 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 				entitiesList.add(entity);
 			}
 		} catch (SQLException e) {
-			throw new RuntimeException("can't select car entities", e);
+			throw new RuntimeException("can't select driver entities", e);
 		}
 		return entitiesList;
 	}
@@ -108,4 +109,13 @@ public class DriverDaoImpl extends AbstractDao implements IDao<Integer, Driver> 
 
 	}
 
+	@Override
+	public List<Driver> find(TableStateDto tableStateDto) {
+		throw new RuntimeException("not implemented");
+	}
+
+	@Override
+	public int count() {
+		throw new RuntimeException("not implemented");
+	}
 }
