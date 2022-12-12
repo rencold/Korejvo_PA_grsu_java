@@ -15,10 +15,10 @@
 	<div class="nav-wrapper container">
 		<a id="logo-container" href="request.jsp" class="brand-logo">Autobase</a>
 		<ul class="brand-logo center">
-		<li><a href="request.jsp">Requests</a></li>
-        <li><a href="driver.jsp">Drivers</a></li>
-        <li><a href="car.jsp">Cars</a></li>
-        <li><a href="run.jsp">Runs</a></li>
+		<li><a href="request">Requests</a></li>
+        <li><a href="driver">Drivers</a></li>
+        <li><a href="car">Cars</a></li>
+        <li><a href="run">Runs</a></li>
         </ul>
 		<ul class="right hide-on-med-and-down">
 		<li><a class="waves-effect waves-light btn">Logout</a></li>
