@@ -13,7 +13,7 @@
 	</c:choose>
 	
 	
-	<form class="col s12" method="post" action="/model">
+	<form class="col s12" method="post" action="/driver">
 		<div class="row">
 			<input type="hidden" name="id" value="${dto.id}" />
 			<div class="row">
