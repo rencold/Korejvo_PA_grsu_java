@@ -20,7 +20,6 @@ public class RunServlet extends HttpServlet {
 	public void doGet(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String paramId = req.getParameter("id");
 
-		// validation
 		if (!ValidationUtils.isInteger(paramId)) {
 			res.sendError(400); // send HTTP status 400 and close response
 			return;

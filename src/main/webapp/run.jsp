@@ -12,17 +12,16 @@
 			</div>
 		</div>
 	</div>
-	
-		<table>
-			<thead>
-				<tr>
-					<th>ID</th>
-					<th>Location From</th>
-					<th>Location To</th>
-					<th>Distance</th>
-					<th>Actions</th>
-				</tr>
-			</thead>
+	<table>
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Location From</th>
+				<th>Location To</th>
+				<th>Distance</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
 			<tbody>
 				<c:forEach var="entity" items="${list}" varStatus="loopCounter">
 					<tr>
